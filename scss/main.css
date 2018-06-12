@@ -410,7 +410,7 @@ ul.ul-portfolio li.li-portfolio div.div-content::before{
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100%;
+	width: 120%;
 	height: 100%;
 	opacity: 1px;
 	transform: translateX(-100%) scale(1) skew(45deg);
@@ -422,6 +422,14 @@ ul.ul-portfolio li.li-portfolio div.div-content .content{
 	transform: translateY(-50%);
 	display: flex;
 	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+ul.ul-portfolio li.li-portfolio div.div-content .content h3{
+    margin: 0px;
+    color: #D55E2D;
+    transform: translateY(-100%) scale(0);
+	transition: 0.5s; 
 }
 ul.ul-portfolio li.li-portfolio div.div-content .content ul{
 	width: 100%;
@@ -429,8 +437,8 @@ ul.ul-portfolio li.li-portfolio div.div-content .content ul{
 	transform: translateY(-100%) scale(0);
 	transition: 0.5s;
 }
-ul.ul-portfolio li.item1:hover div.div-content .content ul{
-  transform: translateY(0) scale(1);
+ul.ul-portfolio li.item1:hover div.div-content .content ul, ul.ul-portfolio li.li-portfolio div.div-content .content h3{
+    transform: translateY(0) scale(1);
 }
 ul.ul-portfolio li.item1:hover div.img{
 	transform:  rotate(-45deg) scale(2);
@@ -438,7 +446,7 @@ ul.ul-portfolio li.item1:hover div.img{
 ul.ul-portfolio li.item1:hover div.div-content::before{
 	opacity: 0.9;
 	background-color: #3D4252;
-	transform: translateX(0) scale(1) skew(45deg);
+	transform: translateX(-1px) scale(1) skew(45deg);
 }
 ul.ul-portfolio li.item2:hover div.div-content .content ul{
   transform: translateY(0) scale(1);
@@ -449,7 +457,7 @@ ul.ul-portfolio li.item2:hover div.img{
 ul.ul-portfolio li.item2:hover div.div-content::before{
 	opacity: 0.9;
 	background-color: #3D4252;
-	transform: translateX(0) scale(1) skew(45deg);
+	transform: translateX(-1px) scale(1) skew(45deg);
 }
 ul.ul-portfolio li.item3:hover div.div-content .content ul{
   transform: translateY(0) scale(1);
@@ -460,7 +468,7 @@ ul.ul-portfolio li.item3:hover div.img{
 ul.ul-portfolio li.item3:hover div.div-content::before{
 	opacity: 0.9;
 	background-color: #3D4252;
-	transform: translateX(0) scale(1) skew(45deg);
+	transform: translateX(-1px) scale(1) skew(45deg);
 }
 ul.ul-portfolio li.item4:hover div.div-content .content ul{
   transform: translateY(0) scale(1);
@@ -471,7 +479,7 @@ ul.ul-portfolio li.item4:hover div.img{
 ul.ul-portfolio li.item4:hover div.div-content::before{
 	opacity: 0.9;
 	background-color: #3D4252;
-	transform: translateX(0) scale(1) skew(45deg);
+	transform: translateX(-1px) scale(1) skew(45deg);
 }
 ul.ul-portfolio li.item5:hover div.div-content .content ul{
   transform: translateY(0) scale(1);
@@ -482,10 +490,13 @@ ul.ul-portfolio li.item5:hover div.img{
 ul.ul-portfolio li.item5:hover div.div-content::before{
 	opacity: 0.9;
 	background-color: #3D4252;
-	transform: translateX(0) scale(1) skew(45deg);
+	transform: translateX(-1px) scale(1) skew(45deg);
 }
 ul.icons-portfolio{
 	padding: 0px;
+}
+ul.icons-portfolio a:hover{
+  cursor: default;
 }
 ul.icons-portfolio li i{
 	position: absolute;
