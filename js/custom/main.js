@@ -7,10 +7,111 @@ $(document).ready(function(){
 			$('nav').removeClass('scroll');
 		}
 	});
-	
+
+
+	// Section Portfolio
+	$(".li-portfolio.item1 .plus").click(function(){
+		var boxTop = $(window).scrollTop();
+		$("body").append("<div class='box'></div>");
+		$("div.box").css({'top':boxTop});
+		$("div.box").append("<div class='imgbox'></div>");
+		$("div.imgbox").css({'background':'url(../../img/curateniePromotion.jpg) no-repeat center','background-size':'cover'});
+		$("div.imgbox").append("<div class='closebox'></div>");
+	});
+	$(".li-portfolio.item2 .plus").click(function(){
+		var boxTop = $(window).scrollTop();
+		$("body").append("<div class='box'></div>");
+		$("div.box").css({'top':boxTop});
+		$("div.box").append("<div class='imgbox'></div>");
+		$("div.imgbox").css({'background':'url(../../img/villanyTelepPromotion.jpg) no-repeat center','background-size':'cover'});
+		$("div.imgbox").append("<div class='closebox'></div>");
+	});
+	$(".li-portfolio.item3 .plus").click(function(){
+		var boxTop = $(window).scrollTop();
+		$("body").append("<div class='box'></div>");
+		$("div.box").css({'top':boxTop});
+		$("div.box").append("<div class='imgbox'></div>");
+		$("div.imgbox").css({'background':'url(../../img/artfoyerPromotion.jpg) no-repeat center','background-size':'cover'});
+		$("div.imgbox").append("<div class='closebox'></div>");
+	});
+	$(".li-portfolio.item4 .plus").click(function(){
+		var boxTop = $(window).scrollTop();
+		$("body").append("<div class='box'></div>");
+		$("div.box").css({'top':boxTop});
+		$("div.box").append("<div class='imgbox'></div>");
+		$("div.imgbox").css({'background':'url(../../img/activRelaxPromotion.jpg) no-repeat center','background-size':'cover'});
+		$("div.imgbox").append("<div class='closebox'></div>");
+	});
+	$(".li-portfolio.item5 .plus").click(function(){
+		var boxTop = $(window).scrollTop();
+		$("body").append("<div class='box'></div>");
+		$("div.box").css({'top':boxTop});
+		$("div.box").append("<div class='imgbox'></div>");
+		$("div.imgbox").css({'background':'url(../../img/egeszenPromotion.jpg) no-repeat center','background-size':'cover'});
+		$("div.imgbox").append("<div class='closebox'></div>");
+	});
+	$(document).on('click', ".closebox", function(){
+		$("div.box").remove();
+	});	
+
+// End Section Portfolio
+
+
+//Typing Text Animation
+$(function() {
+	var textOpts = ["I am Paramanantham", "Full stack developer (Javascript, Django)", "Knows android app development", "Experiment canvas and CSS3 animations", "Loves simple UX with elegant UI", "Teach Angular JS, Android, Node JS, Mongodb, Python / Django for students through ufaber.com"],
+	timeOut,
+	len = textOpts.length,
+	$writer = $('#writer'), 
+	currentValue = 0, charVal = 0,
+	cursor = '<span class="cursor">|</span>',
+	lengths = [];
+
+	$.each(textOpts, function( index, value ) {
+		lengths.push( value.length );
+	});
+
+	function typeAnimationIt() {
+		var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+		timeOut = setTimeout(function() {
+			charVal++;
+			var	txtLen = lengths[currentValue],
+			type = textOpts[currentValue].substring(0, charVal);
+			$writer.html(type + cursor);
+			typeAnimationIt();
+			if(charVal == txtLen) {
+				clearTimeout(timeOut);
+				if(currentValue < len - 1) {
+					setTimeout(function() {
+						typeAnimationDelete();
+					}, 1000);
+				}
+			}
+		}, humanize);
+	}
+
+	function typeAnimationDelete() {
+		var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+		timeOut = setTimeout(function() {
+			charVal--;
+			var	type = textOpts[currentValue].substring(0, charVal);
+			$writer.html(type + cursor);
+			typeAnimationDelete();
+			if(charVal == 0) {
+				clearTimeout(timeOut);
+				currentValue++;
+				setTimeout(function() {
+					typeAnimationIt();
+				}, 1000);
+			}
+		}, humanize);
+	}
+
+	typeAnimationIt();
 });
+//End Typing Text Animation
 
-
+});
 /******************************************** JAVASCRIPT ********************************************/
 window.onload = function(){
 
