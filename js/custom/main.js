@@ -9,6 +9,38 @@ $(document).ready(function(){
 	});
 
 
+// Back to Top
+var offset = 300,
+		offset_opacity = 1200,
+		scroll_top_duration = 700,
+		$back_to_top = $('.back-to-top');
+
+	$(window).scroll(function(){
+		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('bkt-is-visible') : $back_to_top.removeClass('bkt-is-visible bkt-fade-out');
+		if( $(this).scrollTop() > offset_opacity ) { 
+			$back_to_top.addClass('bkt-fade-out');
+		}
+	});
+
+	$back_to_top.on('click', function(event){
+		event.preventDefault();
+		$('body,html').animate({
+			scrollTop: 0 ,
+		 	}, scroll_top_duration
+		);
+	});
+// End Back to Top
+
+
+// Contact Buttons
+$(window).on('scroll', function(){
+	var y = $(window).scrollTop(),
+	translateY = y - 194;
+	$('.contact-buttons').css({'transform':'translateY('+translateY+'px)'});
+});
+// End Contact Buttons
+
+
 	// Section Portfolio
 	$(".li-portfolio.item1 .plus").click(function(){
 		var boxTop = $(window).scrollTop();
@@ -58,57 +90,67 @@ $(document).ready(function(){
 
 
 //Typing Text Animation
-$(function() {
-	var textOpts = ["I am Paramanantham", "Full stack developer (Javascript, Django)", "Knows android app development", "Experiment canvas and CSS3 animations", "Loves simple UX with elegant UI", "Teach Angular JS, Android, Node JS, Mongodb, Python / Django for students through ufaber.com"],
-	timeOut,
-	len = textOpts.length,
-	$writer = $('#writer'), 
-	currentValue = 0, charVal = 0,
-	cursor = '<span class="cursor">|</span>',
-	lengths = [];
 
-	$.each(textOpts, function( index, value ) {
-		lengths.push( value.length );
-	});
+var textOpts = ['If your primary goal is to boost your productivity and competitiveness','If you expect your software to be worked with hand in hand with your best ideas','If you are looking for a perfect work flow in your company and dream of a minimization of the work load of recurrent tasks','If you expect your software architecture to be tailored to your most attractive company’s public profile and to be easily maintained in','If you plan to hire responsible top software developers who never say "no" or "not possible" when challenged with clearly defined task'],
+timeOut,
+len = textOpts.length,
+$writer = $('#writer'), 
+currentValue = 0, charVal = 0,
+cursor = '<span class="cursor">|</span>',
+lengths = [];
 
-	function typeAnimationIt() {
-		var humanize = Math.round(Math.random() * (200 - 30)) + 30;
-		timeOut = setTimeout(function() {
-			charVal++;
-			var	txtLen = lengths[currentValue],
-			type = textOpts[currentValue].substring(0, charVal);
-			$writer.html(type + cursor);
-			typeAnimationIt();
-			if(charVal == txtLen) {
-				clearTimeout(timeOut);
-				if(currentValue < len - 1) {
-					setTimeout(function() {
-						typeAnimationDelete();
-					}, 1000);
-				}
+$.each(textOpts, function( index, value ) {
+	lengths.push( value.length );
+});
+
+function typeAnimationIt() {
+	var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+	timeOut = setTimeout(function() {
+		charVal++;
+		var	txtLen = lengths[currentValue],
+		type = textOpts[currentValue].substring(0, charVal);
+		$writer.html(type + cursor);
+		typeAnimationIt();
+		if(charVal == txtLen) {
+			clearTimeout(timeOut);
+			if(currentValue < len - 1) {
+				setTimeout(function() {
+					typeAnimationDelete();
+				}, 1000);
 			}
-		}, humanize);
-	}
+			if(currentValue == len-1){
+				currentValue=-1;
+				charVal =1;
+				setTimeout(function() {
+					typeAnimationDelete();
+				}, 1000);
+			}
 
-	function typeAnimationDelete() {
-		var humanize = Math.round(Math.random() * (200 - 30)) + 30;
-		timeOut = setTimeout(function() {
-			charVal--;
+		}
+	}, humanize);
+
+}
+
+function typeAnimationDelete() {
+	var humanize = Math.round(Math.random() * (200 - 30)) + 30;
+	timeOut = setTimeout(function() {
+		charVal--;
+		if(currentValue >-1){
 			var	type = textOpts[currentValue].substring(0, charVal);
 			$writer.html(type + cursor);
 			typeAnimationDelete();
-			if(charVal == 0) {
-				clearTimeout(timeOut);
-				currentValue++;
-				setTimeout(function() {
-					typeAnimationIt();
-				}, 1000);
-			}
-		}, humanize);
-	}
+		}
 
-	typeAnimationIt();
-});
+		if(charVal == 0) {
+			clearTimeout(timeOut);
+			currentValue++;
+			setTimeout(function() {
+				typeAnimationIt();
+			}, 1000);
+		}
+	}, humanize);
+}
+typeAnimationIt();
 //End Typing Text Animation
 
 });
