@@ -8,7 +8,6 @@ $(document).ready(function(){
 		}
 	});
 
-
 // Back to Top
 var offset = 300,
 		offset_opacity = 1200,
@@ -153,6 +152,34 @@ function typeAnimationDelete() {
 typeAnimationIt();
 //End Typing Text Animation
 
+
+// Owl carousel
+
+ $(".owl-carousel").owlCarousel({
+	items: 1,
+	loop: true,
+	autoplay: true,
+	dots: false,
+	navContainer: $('.slider-nav'),
+	navText: ['<','>'],
+	smartSpeed: 1000,
+	autoplayTimeout: 10000,  
+});
+// End Owl carousel
+
+
+// Contact
+$('.form #name').focus(function(){
+  $('.form .left-bar').css({'transform' : 'translateY(0px)'});
+});
+$('.form #email').focus(function(){
+  $('.form .left-bar').css({'transform' : 'translateY(128px)'});
+});
+$('.form #message').focus(function(){
+  $('.form .left-bar').css({'transform' : 'translateY(256px)'});
+});
+// End Contact
+
 });
 /******************************************** JAVASCRIPT ********************************************/
 window.onload = function(){
@@ -160,7 +187,7 @@ window.onload = function(){
 	/* Opened Menu */
 
 	(function(){
-		var opened = document.querySelector('nav'),
+		var opened = document.querySelector('.burger-container'),
 		nav = document.querySelector('nav');
 
 		opened.onclick = function() {
