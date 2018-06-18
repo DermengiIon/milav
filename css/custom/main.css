@@ -1199,7 +1199,7 @@ div.carousel{
 	width: 160px;
 	height: 60px;
 	border: 2px solid #3D4252;
-	margin-left: 6.5vw;
+	float: right;
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;
 	-webkit-transition: 0.5s;
@@ -1732,14 +1732,7 @@ ul.ul-portfolio li.item5:hover div.div-content::before{
 }
 
 
-@media only screen and (max-width: 450px){
-	.sections-names label{
-		padding: 10px 0px;
-	}
-	.sections-names label::before,
-	.sections-names label::after{
-		opacity: 0;
-	}
+@media only screen and (max-width: 400px){
 	div.carousel{
 		font-size: 15px;
 
@@ -1754,6 +1747,17 @@ ul.ul-portfolio li.item5:hover div.div-content::before{
 		height: 80px;
 		font-size: 28px;
 		line-height: 80px;
+	}
+}
+@media only screen and (max-width: 630px){
+	.sections-names label{
+		padding: 10px 0px;
+		border-bottom: 2px solid #D55E2D;
+	}
+	.sections-names label::before,
+	.sections-names label::after{
+		
+		display: none;
 	}
 }
 
