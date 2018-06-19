@@ -45,7 +45,7 @@
 }
 
 ::selection{
-	background-color: #802427;
+	background-color: #3D4252;
 	color: #fff;
 	text-shadow: none;
 }
@@ -569,6 +569,14 @@ div.services-item p span{
 	color: #D55E2D;
 	margin-top: 5px;
 }
+div.services-item p span:hover{
+	cursor: pointer;
+	opacity: 0.5;
+}
+.services .more{
+	display: none;
+	transition: 0.5s;
+}
 /* End Section Services */
 
 
@@ -758,8 +766,41 @@ ul.icons-portfolio li:hover{
 	display: flex;
 	flex-direction: row;
 }
+.hosting-table{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.hosting-table .ul-tables{
+	padding: 0px;
+}
+.ul-tables .host-name{
+	font-family: roboto-bold;
+}
+.ul-tables .price sub{
+	font-size: 14px;
+	 color: #000;
+}
+.ul-tables .price{
+    color: red;
+	font-size: 32px;
+}
 .hosting-table .ul-tables .th-hide{
 	display: none;
+}
+.ul-tables table th,
+.ul-tables table td{
+	text-align: center;
+	border: 1px solid #3D4252;
+    padding: 20px;
+	
+}
+.ul-tables table{
+	border-collapse: collapse;
+}
+.ul-tables table .th-off{
+	opacity: 0;
+	border: none;
 }
 /* End Section Hosting */
 
@@ -941,6 +982,24 @@ div.carousel{
 .label-input label{
 	height: 20px;
 	font-family: RobotoCondensed-Bold, sans-serif;
+}
+.label-input label.not-valide{
+	color: red;
+}
+.label-input input.not-valide{
+	border-bottom: 2px solid red;
+}
+.label-input input.valide{
+	border-bottom: 2px solid green;
+}
+.label-input label.valide{
+	color: green;
+}
+.label-input textarea.valide{
+	border-bottom: 2px solid green;
+}
+.label-input textarea.not-valide{
+	border-bottom: 2px solid red;
 }
 .label-input input{
 	border: none;
@@ -1283,9 +1342,20 @@ ul.ul-portfolio li.item5:hover div.div-content::before{
 	.hosting-table .ul-tables{
 		display: flex;
 		flex-direction: column;
+		width: 100%;
+	}
+	.ul-tables table th,
+	.ul-tables table td{
+     padding: 10px;
+	} 
+	.hosting-table .ul-tables table{
+		width: 100%;
+	}
+	.hosting-table .ul-tables li{
+		margin: 20px 0px;
 	}
 	.hosting-table .ul-tables .th-hide{
-		display: inline-block;
+		display: table-cell;
 	}
 	/* Section Portfolio */
 	.portfolio .div-portfolio{
@@ -1396,6 +1466,14 @@ ul.ul-portfolio li.item5:hover div.div-content::before{
 	.footer .milav-contacts div:last-child{
 		margin: 0px;
 	}
+	.contact .circle {
+		right: -20px;
+		top: -20px;
+		width: 80px;
+		height: 80px;
+		font-size: 28px;
+		line-height: 80px;
+	}
 }
 
 
@@ -1407,14 +1485,7 @@ ul.ul-portfolio li.item5:hover div.div-content::before{
 	.about .text{
 		font-size: 16px;
 	}
-	.contact .circle {
-		right: -20px;
-		top: -20px;
-		width: 80px;
-		height: 80px;
-		font-size: 28px;
-		line-height: 80px;
-	}
+	
 }
 @media only screen and (max-width: 630px){
 	.sections-names label{

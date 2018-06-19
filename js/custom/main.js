@@ -31,6 +31,13 @@ var offset = 300,
 // End Back to Top
 
 
+//  Services
+    $('.services-more').click(function(){      
+	$(this).closest('.services-item').find('.more').toggle();
+    });
+// End Services
+
+
 // Contact Buttons
 $(window).on('scroll', function(){
 	var y = $(window).scrollTop(),
@@ -172,12 +179,80 @@ typeAnimationIt();
 $('.form #name').focus(function(){
   $('.form .left-bar').css({'transform' : 'translateY(0px)'});
 });
+
+$('.form #name').focusout(function(){
+ if($('.form #name').val().length < 1){
+    $('#name').addClass('not-valide').removeClass('valide');
+    $('label[for=name]').addClass('not-valide').removeClass('valide');
+  }else{
+  	 $('#name').addClass('valide').removeClass('not-valide');
+    $('label[for=name]').addClass('valide').removeClass('not-valide');
+  }
+});
+
 $('.form #email').focus(function(){
   $('.form .left-bar').css({'transform' : 'translateY(128px)'});
+});
+
+$('.form #email').focusout(function(){
+	var email = $('.form #email').val();
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	  	if (email == '' || !re.test(email)){
+	  		$('#email').addClass('not-valide').removeClass('valide');
+	        $('label[for=email]').addClass('not-valide').removeClass('valide');
+        } else {
+            $('#email').addClass('valide').removeClass('not-valide');
+            $('label[for=email]').addClass('valide').removeClass('not-valide');
+	    }  	
 });
 $('.form #message').focus(function(){
   $('.form .left-bar').css({'transform' : 'translateY(256px)'});
 });
+$('.form #message').focusout(function(){
+ if($('.form #message').val().length < 1){
+    $('#message').addClass('not-valide').removeClass('valide');
+    $('label[for=message]').addClass('not-valide').removeClass('valide');
+  }else{
+  	 $('#message').addClass('valide').removeClass('not-valide');
+    $('label[for=message]').addClass('valide').removeClass('not-valide');
+  }
+});
+
+
+$('#contact-form').submit(function(e) {
+	 e.preventDefault();
+	var nameValide = false;
+    var emailValide = false;
+    var textValide = false;
+    if($('#name').hasClass('valide')){
+    		nameValide = true;
+    	}else{
+    	 $('#name').addClass('not-valide');
+    	 $('label[for=name]').addClass('not-valide');	
+    	}
+    if($('#email').hasClass('valide')){
+    		emailValide = true;
+    	}else{
+    		$('#email').addClass('not-valide');
+    		$('label[for=email]').addClass('not-valide');
+    	}
+    
+    if($('#message').hasClass('valide')){
+    		textValide = true;
+    	}else{
+    		$('#message').addClass('not-valide');
+    		$('label[for=message]').addClass('not-valide');
+    	}
+    if(nameValide == true && emailValide == true && textValide == true){
+
+    //  $.ajax({
+    //  type: 'POST',
+    //  url:  '/'
+    // });
+    }
+});
+
 // End Contact
 
 });
